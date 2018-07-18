@@ -1,0 +1,3 @@
+exportPattern("^[[:alpha:]]+")
+
+importFrom("stats", "pnorm", "dnorm", "rnorm", "runif", "rweibull", "rchisq", "ks.test")
