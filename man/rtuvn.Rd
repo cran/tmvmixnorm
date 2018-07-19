@@ -7,7 +7,7 @@
 rtuvn(n = 1, mean = 0, sd = 1, lower, upper)
 }
 \arguments{
-\item{n}{number of random number generating.}
+\item{n}{number of random samples desired (sample size).}
 
 \item{mean}{mean of the underlying univariate normal distribution.}
 
@@ -21,7 +21,7 @@ rtuvn(n = 1, mean = 0, sd = 1, lower, upper)
 \code{rtuvn} returns a vector of random number follows truncated univariate normal distribution.
 }
 \description{
-\code{rtuvn} simulate truncated univariate normal distribution within the interval.
+\code{rtuvn} simulates truncated univariate normal distribution within the interval.
 }
 \examples{
 set.seed(1203)

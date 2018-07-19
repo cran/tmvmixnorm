@@ -12,7 +12,7 @@ exp_acc_opt(a, b)
 \item{b}{upper bound for truncation.}
 }
 \description{
-\code{exp_acc_opt} calculate the acceptance rate of translated-exponential rejection sampling for the truncation interval (a,b).
+\code{exp_acc_opt} calculates the acceptance rate of translated-exponential rejection sampling for the truncation interval (a,b).
 }
 \examples{
 set.seed(1203)

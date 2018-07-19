@@ -1,14 +1,14 @@
-#' Density function of truncated univariate normal distribution
+#' Distribution function of truncated univariate normal distribution
 #'
-#' \code{ptuvn} calculates the cumulative density function (cdf) of truncated univariate normal distribution.
+#' \code{ptuvn} calculates the cumulative distribution function (cdf) of truncated univariate normal distribution.
 #'
-#' @param x input for cdf of interest.
+#' @param x value at which cdf is desired.
 #' @param mean mean of the underlying univariate normal distribution.
 #' @param sd standard deviation of the underlying univariate normal distribution.
 #' @param lower lower bound for truncation.
 #' @param upper upper bound for truncation.
 #'
-#' @return \code{ptuvn} returns the cumulative density function (with same dimension and type as \code{x}) of truncated univariate normal distribution.
+#' @return \code{ptuvn} returns the cumulative distribution function (with same dimension and type as \code{x}) of truncated univariate normal distribution.
 #'
 #' @examples
 #' ptuvn(x= -3:3, mean=0, sd=1 ,lower= -2, upper=2)

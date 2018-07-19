@@ -3,7 +3,7 @@
 #' \code{imp} contains a general function for rejection sampling of standardized truncated univariate normal distribution in (a,b).
 #'
 #' @param a lower bound for truncation.
-#' @param b upper bound for truncation.
+#' @param b upper bound for truncation (must be \code{> a}).
 #'
 #' @return \code{imp} returns a list
 #' \code{x}: sampled value; and

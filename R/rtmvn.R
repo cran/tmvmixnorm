@@ -2,17 +2,17 @@
 #'
 #' \code{rtmvn} simulates truncated multivariate (p-dimensional) normal distribution subject to linear inequality constraints. The constraints should be written as a matrix (\code{D}) with \code{lower} and \code{upper} as the lower and upper bounds for those constraints respectively. Note that \code{D} can be non-full rank, which generalize many traditional methods.
 #'
-#' @param n number of random number generating.
-#' @param Mean mean vector of the multivariate normal distribution.
-#' @param Sigma positive definite covariance matrix of the multivariate normal distribution.
+#' @param n number of random samples desired (sample size).
+#' @param Mean mean vector of the underlying multivariate normal distribution.
+#' @param Sigma positive definite covariance matrix of the underlying multivariate normal distribution.
 #' @param D matrix or vector of coefficients of linear inequality constraints.
-#' @param lower lower bound vector for truncation.
-#' @param upper upper bound vector for truncation.
-#' @param int initial value vector for Gibbs sampler.
-#' @param burn burn-in iterations decarded (default as \code{10}).
+#' @param lower vector of lower bounds for truncation.
+#' @param upper vector of upper bounds for truncation.
+#' @param int initial value vector for Gibbs sampler (satisfying truncation).
+#' @param burn burn-in iterations discarded (default as \code{10}).
 #' @param thin thinning lag (default as \code{1}).
 #'
-#' @return \code{rtmvn} returns a (\code{n*p}) matrix (or vector when \code{n=1}) containing random numbers which follows truncated multivariate  normal distribution.
+#' @return \code{rtmvn} returns a (\code{n*p}) matrix (or vector when \code{n=1}) containing random numbers which approximately follows truncated multivariate  normal distribution.
 #'
 #' @examples
 #' # Example for full rank with strong dependence

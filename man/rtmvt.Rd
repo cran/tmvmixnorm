@@ -2,18 +2,18 @@
 % Please edit documentation in R/rtmvt.R
 \name{rtmvt}
 \alias{rtmvt}
-\title{Random number generation for truncated multivariate Student-t distribution subject to linear inequality constraints}
+\title{Random number generation for truncated multivariate Student's t distribution subject to linear inequality constraints}
 \usage{
 rtmvt(n, Mean, Sigma, nu, D, lower, upper, int, burn = 10, thin = 1)
 }
 \arguments{
-\item{n}{number of random number generating.}
+\item{n}{number of random samples desired (sample size).}
 
-\item{Mean}{mean vector of the multivariate normal distribution.}
+\item{Mean}{location vector of the multivariate Student's t distribution.}
 
-\item{Sigma}{positive definite covariance matrix of the multivariate normal distribution.}
+\item{Sigma}{positive definite dispersion matrix of the multivariate t distribution.}
 
-\item{nu}{degree of freedom for Student-t distribution.}
+\item{nu}{degrees of freedom for Student-t distribution.}
 
 \item{D}{matrix or vector of coefficients of linear inequality constraints.}
 
@@ -31,7 +31,7 @@ rtmvt(n, Mean, Sigma, nu, D, lower, upper, int, burn = 10, thin = 1)
 \code{rtmvt} returns a (\code{n*p}) matrix (or vector when \code{n=1}) containing random numbers which follows truncated multivariate Student-t distribution.
 }
 \description{
-\code{rtmvt} simulates truncated multivariate (p-dimensional) Student-t distribution subject to linear inequality constraints. The constraints should be written as a matrix (\code{D}) with \code{lower} and \code{upper} as the lower and upper bounds for those constraints respectively. Note that \code{D} can be non-full rank, which generalize many traditional methods.
+\code{rtmvt} simulates truncated multivariate (p-dimensional) Student's t distribution subject to linear inequality constraints. The constraints should be written as a matrix (\code{D}) with \code{lower} and \code{upper} as the lower and upper bounds for those constraints respectively. Note that \code{D} can be non-full rank, which generalizes many traditional methods.
 }
 \examples{
 # Example for full rank

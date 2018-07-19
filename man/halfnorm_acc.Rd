@@ -12,7 +12,7 @@ halfnorm_acc(a, b)
 \item{b}{upper bound for truncation.}
 }
 \description{
-\code{halfnorm_acc} calculate the acceptance rate of half-normal rejection sampling for the truncation interval (a,b).
+\code{halfnorm_acc} calculates the acceptance rate of half-normal rejection sampling for the truncation interval (a,b).
 }
 \examples{
 set.seed(1203)

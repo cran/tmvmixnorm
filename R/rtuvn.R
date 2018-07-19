@@ -1,8 +1,8 @@
 #' Random number generation for truncated univariate normal distribution
 #'
-#' \code{rtuvn} simulate truncated univariate normal distribution within the interval.
+#' \code{rtuvn} simulates truncated univariate normal distribution within the interval.
 #'
-#' @param n number of random number generating.
+#' @param n number of random samples desired (sample size).
 #' @param mean mean of the underlying univariate normal distribution.
 #' @param sd standard deviation of the underlying univariate normal distribution.
 #' @param lower lower bound for truncation.

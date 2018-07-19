@@ -12,7 +12,7 @@ unif_acc(a, b)
 \item{b}{upper bound for truncation.}
 }
 \description{
-\code{unif_acc} calculate the acceptance rate of uniform rejection sampling for the truncation interval (a,b).
+\code{unif_acc} calculates the acceptance rate of uniform rejection sampling for the truncation interval (a,b).
 }
 \examples{
 set.seed(1203)

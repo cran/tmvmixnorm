@@ -1,8 +1,8 @@
 #' Density function of truncated univariate normal distribution
 #'
-#' \code{dtuvn} calculates the density function (pdf) of truncated univariate normal distribution.
+#' \code{dtuvn} calculates the probability density function (pdf) of truncated univariate normal distribution.
 #'
-#' @param x input for density of interest.
+#' @param x value at which density is desired.
 #' @param mean mean of the underlying univariate normal distribution.
 #' @param sd standard deviation of the underlying univariate normal distribution.
 #' @param lower lower bound for truncation.

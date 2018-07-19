@@ -7,7 +7,7 @@
 dtuvn(x, mean, sd, lower, upper)
 }
 \arguments{
-\item{x}{input for density of interest.}
+\item{x}{value at which density is desired.}
 
 \item{mean}{mean of the underlying univariate normal distribution.}
 
@@ -21,7 +21,7 @@ dtuvn(x, mean, sd, lower, upper)
 \code{dtuvn} returns the density (with same dimension and type as \code{x}) of truncated univariate normal distribution.
 }
 \description{
-\code{dtuvn} calculates the density function (pdf) of truncated univariate normal distribution.
+\code{dtuvn} calculates the probability density function (pdf) of truncated univariate normal distribution.
 }
 \examples{
 dtuvn(x= -3:3, mean=0, sd=1 ,lower= -2, upper=2)

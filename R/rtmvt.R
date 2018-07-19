@@ -1,11 +1,11 @@
-#' Random number generation for truncated multivariate Student-t distribution subject to linear inequality constraints
+#' Random number generation for truncated multivariate Student's t distribution subject to linear inequality constraints
 #'
-#' \code{rtmvt} simulates truncated multivariate (p-dimensional) Student-t distribution subject to linear inequality constraints. The constraints should be written as a matrix (\code{D}) with \code{lower} and \code{upper} as the lower and upper bounds for those constraints respectively. Note that \code{D} can be non-full rank, which generalize many traditional methods.
+#' \code{rtmvt} simulates truncated multivariate (p-dimensional) Student's t distribution subject to linear inequality constraints. The constraints should be written as a matrix (\code{D}) with \code{lower} and \code{upper} as the lower and upper bounds for those constraints respectively. Note that \code{D} can be non-full rank, which generalizes many traditional methods.
 #'
-#' @param n number of random number generating.
-#' @param Mean mean vector of the multivariate normal distribution.
-#' @param Sigma positive definite covariance matrix of the multivariate normal distribution.
-#' @param nu degree of freedom for Student-t distribution.
+#' @param n number of random samples desired (sample size).
+#' @param Mean location vector of the multivariate Student's t distribution.
+#' @param Sigma positive definite dispersion matrix of the multivariate t distribution.
+#' @param nu degrees of freedom for Student-t distribution.
 #' @param D matrix or vector of coefficients of linear inequality constraints.
 #' @param lower lower bound vector for truncation.
 #' @param upper upper bound vector for truncation.

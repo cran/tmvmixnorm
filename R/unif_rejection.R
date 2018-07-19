@@ -1,6 +1,6 @@
 #' Uniform rejection sampling
 #'
-#' \code{unif_rej()} is used for uniform rejection sampling.
+#' \code{unif_rej} is used for uniform rejection sampling.
 #'
 #' @param a lower bound
 #' @param b upper bound

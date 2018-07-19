@@ -12,7 +12,7 @@ norm_acc(a, b)
 \item{b}{upper bound for truncation.}
 }
 \description{
-\code{norm_acc} calculate the acceptance rate of normal rejection sampling for the truncation interval (a,b).
+\code{norm_acc} calculates the acceptance rate of normal rejection sampling for the truncation interval (a,b).
 }
 \examples{
 set.seed(1203)

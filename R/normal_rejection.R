@@ -1,6 +1,6 @@
 #' Normal rejection sampling
 #'
-#' \code{norm_rej()} is used for normal rejection sampling.
+#' \code{norm_rej} is used for normal rejection sampling.
 #'
 #' @param a lower bound
 #' @param b upper bound

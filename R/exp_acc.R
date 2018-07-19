@@ -1,6 +1,6 @@
 #' Acceptance rate of translated-exponential rejection sampling
 #'
-#' \code{exp_acc_opt} calculate the acceptance rate of translated-exponential rejection sampling for the truncation interval (a,b).
+#' \code{exp_acc_opt} calculates the acceptance rate of translated-exponential rejection sampling for the truncation interval (a,b).
 #'
 #' @param a lower bound for truncation.
 #' @param b upper bound for truncation.

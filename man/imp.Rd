@@ -9,7 +9,7 @@ imp(a, b)
 \arguments{
 \item{a}{lower bound for truncation.}
 
-\item{b}{upper bound for truncation.}
+\item{b}{upper bound for truncation (must be \code{> a}).}
 }
 \value{
 \code{imp} returns a list

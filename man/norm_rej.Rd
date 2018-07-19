@@ -17,7 +17,7 @@ norm_rej(a, b = Inf)
 \code{acc}: total number of draw used.
 }
 \description{
-\code{norm_rej()} is used for normal rejection sampling.
+\code{norm_rej} is used for normal rejection sampling.
 }
 \examples{
 set.seed(1)

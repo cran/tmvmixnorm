@@ -8,26 +8,26 @@ rtmvn(n, Mean, Sigma, D = diag(1, length(Mean)), lower, upper, int,
   burn = 10, thin = 1)
 }
 \arguments{
-\item{n}{number of random number generating.}
+\item{n}{number of random samples desired (sample size).}
 
-\item{Mean}{mean vector of the multivariate normal distribution.}
+\item{Mean}{mean vector of the underlying multivariate normal distribution.}
 
-\item{Sigma}{positive definite covariance matrix of the multivariate normal distribution.}
+\item{Sigma}{positive definite covariance matrix of the underlying multivariate normal distribution.}
 
 \item{D}{matrix or vector of coefficients of linear inequality constraints.}
 
-\item{lower}{lower bound vector for truncation.}
+\item{lower}{vector of lower bounds for truncation.}
 
-\item{upper}{upper bound vector for truncation.}
+\item{upper}{vector of upper bounds for truncation.}
 
-\item{int}{initial value vector for Gibbs sampler.}
+\item{int}{initial value vector for Gibbs sampler (satisfying truncation).}
 
-\item{burn}{burn-in iterations decarded (default as \code{10}).}
+\item{burn}{burn-in iterations discarded (default as \code{10}).}
 
 \item{thin}{thinning lag (default as \code{1}).}
 }
 \value{
-\code{rtmvn} returns a (\code{n*p}) matrix (or vector when \code{n=1}) containing random numbers which follows truncated multivariate  normal distribution.
+\code{rtmvn} returns a (\code{n*p}) matrix (or vector when \code{n=1}) containing random numbers which approximately follows truncated multivariate  normal distribution.
 }
 \description{
 \code{rtmvn} simulates truncated multivariate (p-dimensional) normal distribution subject to linear inequality constraints. The constraints should be written as a matrix (\code{D}) with \code{lower} and \code{upper} as the lower and upper bounds for those constraints respectively. Note that \code{D} can be non-full rank, which generalize many traditional methods.

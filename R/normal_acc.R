@@ -1,6 +1,6 @@
 #' Acceptance rate of normal rejection sampling
 #'
-#' \code{norm_acc} calculate the acceptance rate of normal rejection sampling for the truncation interval (a,b).
+#' \code{norm_acc} calculates the acceptance rate of normal rejection sampling for the truncation interval (a,b).
 #'
 #' @param a lower bound for truncation.
 #' @param b upper bound for truncation.

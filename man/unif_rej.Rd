@@ -17,7 +17,7 @@ unif_rej(a, b)
 \code{acc}: total number of draw used.
 }
 \description{
-\code{unif_rej()} is used for uniform rejection sampling.
+\code{unif_rej} is used for uniform rejection sampling.
 }
 \examples{
 set.seed(1)

@@ -2,12 +2,12 @@
 % Please edit documentation in R/ptuvn.R
 \name{ptuvn}
 \alias{ptuvn}
-\title{Density function of truncated univariate normal distribution}
+\title{Distribution function of truncated univariate normal distribution}
 \usage{
 ptuvn(x, mean, sd, lower, upper)
 }
 \arguments{
-\item{x}{input for cdf of interest.}
+\item{x}{value at which cdf is desired.}
 
 \item{mean}{mean of the underlying univariate normal distribution.}
 
@@ -18,10 +18,10 @@ ptuvn(x, mean, sd, lower, upper)
 \item{upper}{upper bound for truncation.}
 }
 \value{
-\code{ptuvn} returns the cumulative density function (with same dimension and type as \code{x}) of truncated univariate normal distribution.
+\code{ptuvn} returns the cumulative distribution function (with same dimension and type as \code{x}) of truncated univariate normal distribution.
 }
 \description{
-\code{ptuvn} calculates the cumulative density function (cdf) of truncated univariate normal distribution.
+\code{ptuvn} calculates the cumulative distribution function (cdf) of truncated univariate normal distribution.
 }
 \examples{
 ptuvn(x= -3:3, mean=0, sd=1 ,lower= -2, upper=2)

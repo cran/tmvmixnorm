@@ -1,6 +1,6 @@
 #' Acceptance rate of uniform rejection sampling
 #'
-#' \code{unif_acc} calculate the acceptance rate of uniform rejection sampling for the truncation interval (a,b).
+#' \code{unif_acc} calculates the acceptance rate of uniform rejection sampling for the truncation interval (a,b).
 #'
 #' @param a lower bound for truncation.
 #' @param b upper bound for truncation.
