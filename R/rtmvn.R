@@ -8,7 +8,7 @@
 #' @param D matrix or vector of coefficients of linear inequality constraints.
 #' @param lower vector of lower bounds for truncation.
 #' @param upper vector of upper bounds for truncation.
-#' @param int initial value vector for Gibbs sampler (satisfying truncation).
+#' @param int initial value vector for Gibbs sampler (satisfying truncation), if \code{NULL} then determine automatically.
 #' @param burn burn-in iterations discarded (default as \code{10}).
 #' @param thin thinning lag (default as \code{1}).
 #'
@@ -27,7 +27,6 @@
 #' ans.1 <- rtmvn(n=1000, Mean=1:d, Sigma, D=D1, lower=rep(-1,d), upper=rep(1,d),
 #' int=rep(0,d), burn=50)
 #'
-#' acf(ans.1)
 #' apply(ans.1, 2, summary)
 #'
 #' # Example for non-full rank
@@ -40,21 +39,32 @@
 #' qr(D2)$rank # 2
 #'
 #' set.seed(1228)
-#' ans.2 <- rtmvn(n=100, Mean=1:d, Sigma, D=D2, lower=rep(-1,d), upper=rep(1,d),
-#' int=rep(0,d), burn=10)
+#' ans.2 <- rtmvn(n=100, Mean=1:d, Sigma, D=D2, lower=rep(-1,d), upper=rep(1,d), burn=10)
 #'
-#' acf(ans.2)
 #' apply(ans.2, 2, summary)
 #'
-rtmvn <- function(n, Mean, Sigma, D=diag(1,length(Mean)), lower, upper, int, burn=10, thin=1){
+rtmvn <- function(n, Mean, Sigma, D=diag(1,length(Mean)), lower, upper, int=NULL, burn=10, thin=1){
   if (length(Mean) == 1) {
     result <- rtuvn(n=n, mean=Mean, sd=c(Sigma), lower=lower, upper=upper)
   } else{
-  inits_test <- D%*%int
-  lower.log <- inits_test>=lower
-  upper.log <- inits_test<=upper
-  log <- prod(lower.log*upper.log)
-  if(log==0) stop("initial value outside bounds\n")
+
+  if ( any(lower >= upper)) stop("lower bound must be smaller than upper bound\n")
+
+  bound.check <- 0
+
+  if (!is.null(int)) {
+    inits_test <- D%*%int
+    lower.log <- inits_test >= lower + 1e-8  # small tol for get away from bound
+    upper.log <- inits_test <= upper - 1e-8  # small tol for get away from bound
+    bound.check <- prod(lower.log*upper.log)
+    if(bound.check == 0) cat("initial is outside or too close from boundary, will be auto-correlated!\n")
+  } else if (bound.check == 0) {
+
+    D.inv <- MASS::ginv(D)
+    int <- D.inv%*%(lower + upper)/2
+  }
+
+
   if( any (c(burn,thin,n) %% 1 != 0))  stop("burn, thin and n must be integer\n")
   if ( any(c(burn, thin, n -1) < 0) ) stop("burn, thin must be  non-negative interger, n must be positive integer\n")
 

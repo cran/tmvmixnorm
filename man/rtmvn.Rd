@@ -4,8 +4,17 @@
 \alias{rtmvn}
 \title{Random number generation for truncated multivariate normal distribution subject to linear inequality constraints}
 \usage{
-rtmvn(n, Mean, Sigma, D = diag(1, length(Mean)), lower, upper, int,
-  burn = 10, thin = 1)
+rtmvn(
+  n,
+  Mean,
+  Sigma,
+  D = diag(1, length(Mean)),
+  lower,
+  upper,
+  int = NULL,
+  burn = 10,
+  thin = 1
+)
 }
 \arguments{
 \item{n}{number of random samples desired (sample size).}
@@ -20,7 +29,7 @@ rtmvn(n, Mean, Sigma, D = diag(1, length(Mean)), lower, upper, int,
 
 \item{upper}{vector of upper bounds for truncation.}
 
-\item{int}{initial value vector for Gibbs sampler (satisfying truncation).}
+\item{int}{initial value vector for Gibbs sampler (satisfying truncation), if \code{NULL} then determine automatically.}
 
 \item{burn}{burn-in iterations discarded (default as \code{10}).}
 
@@ -45,7 +54,6 @@ set.seed(1203)
 ans.1 <- rtmvn(n=1000, Mean=1:d, Sigma, D=D1, lower=rep(-1,d), upper=rep(1,d),
 int=rep(0,d), burn=50)
 
-acf(ans.1)
 apply(ans.1, 2, summary)
 
 # Example for non-full rank
@@ -58,10 +66,8 @@ D2 <- matrix(c(1,1,1,0,1,0,1,0,1),ncol=d)
 qr(D2)$rank # 2
 
 set.seed(1228)
-ans.2 <- rtmvn(n=100, Mean=1:d, Sigma, D=D2, lower=rep(-1,d), upper=rep(1,d),
-int=rep(0,d), burn=10)
+ans.2 <- rtmvn(n=100, Mean=1:d, Sigma, D=D2, lower=rep(-1,d), upper=rep(1,d), burn=10)
 
-acf(ans.2)
 apply(ans.2, 2, summary)
 
 }

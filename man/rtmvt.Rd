@@ -4,7 +4,7 @@
 \alias{rtmvt}
 \title{Random number generation for truncated multivariate Student's t distribution subject to linear inequality constraints}
 \usage{
-rtmvt(n, Mean, Sigma, nu, D, lower, upper, int, burn = 10, thin = 1)
+rtmvt(n, Mean, Sigma, nu, D, lower, upper, int = NULL, burn = 10, thin = 1)
 }
 \arguments{
 \item{n}{number of random samples desired (sample size).}
@@ -21,9 +21,9 @@ rtmvt(n, Mean, Sigma, nu, D, lower, upper, int, burn = 10, thin = 1)
 
 \item{upper}{upper bound vector for truncation.}
 
-\item{int}{initial value vector for Gibbs sampler.}
+\item{int}{initial value vector for Gibbs sampler (satisfying truncation), if \code{NULL} then determine automatically.}
 
-\item{burn}{burn-in iterations decarded (default as \code{10}).}
+\item{burn}{burn-in iterations discarded (default as \code{10}).}
 
 \item{thin}{thinning lag (default as \code{1}).}
 }
@@ -45,9 +45,8 @@ D1 <- diag(1,d) # Full rank
 
 set.seed(1203)
 ans.t <- rtmvt(n=1000, Mean=1:d, Sigma, nu=nu, D=D1, lower=rep(-1,d), upper=rep(1,d),
-int=rep(0,d), burn=50, thin=0)
+burn=50, thin=0)
 
-acf(ans.t)
 apply(ans.t, 2, summary)
 
 }

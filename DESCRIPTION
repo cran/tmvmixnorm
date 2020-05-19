@@ -1,7 +1,7 @@
 Package: tmvmixnorm
 Type: Package
 Title: Sampling from Truncated Multivariate Normal and t Distributions
-Version: 1.0.2
+Version: 1.1.0
 Authors@R: c(person("Ting Fung (Ralph)", "Ma", email = "tingfung.ma@wisc.edu", role = c("cre", "aut")),
     person("Sujit K.", "Ghosh", email = "sujit_ghosh@ncsu.edu", role = "aut"),
     person("Yifang", "Li", role = "aut"))
@@ -11,12 +11,12 @@ License: GPL-2
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.2.0)
-Imports: stats
-RoxygenNote: 6.0.1
+Imports: stats, MASS
+RoxygenNote: 7.0.2
 NeedsCompilation: no
-Packaged: 2018-07-18 22:56:53 UTC; Ralph
+Packaged: 2020-05-19 01:04:40 UTC; Ralph
 Author: Ting Fung (Ralph) Ma [cre, aut],
   Sujit K. Ghosh [aut],
   Yifang Li [aut]
 Repository: CRAN
-Date/Publication: 2018-07-19 17:30:03 UTC
+Date/Publication: 2020-05-19 06:50:02 UTC

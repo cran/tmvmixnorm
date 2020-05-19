@@ -9,8 +9,8 @@
 #' @param D matrix or vector of coefficients of linear inequality constraints.
 #' @param lower lower bound vector for truncation.
 #' @param upper upper bound vector for truncation.
-#' @param int initial value vector for Gibbs sampler.
-#' @param burn burn-in iterations decarded (default as \code{10}).
+#' @param int initial value vector for Gibbs sampler (satisfying truncation), if \code{NULL} then determine automatically.
+#' @param burn burn-in iterations discarded (default as \code{10}).
 #' @param thin thinning lag (default as \code{1}).
 #'
 #' @return \code{rtmvt} returns a (\code{n*p}) matrix (or vector when \code{n=1}) containing random numbers which follows truncated multivariate Student-t distribution.
@@ -27,18 +27,27 @@
 #'
 #' set.seed(1203)
 #' ans.t <- rtmvt(n=1000, Mean=1:d, Sigma, nu=nu, D=D1, lower=rep(-1,d), upper=rep(1,d),
-#' int=rep(0,d), burn=50, thin=0)
+#' burn=50, thin=0)
 #'
-#' acf(ans.t)
 #' apply(ans.t, 2, summary)
 #'
-rtmvt <- function(n, Mean, Sigma, nu, D, lower, upper, int, burn=10, thin=1){
+rtmvt <- function(n, Mean, Sigma, nu, D, lower, upper, int=NULL, burn=10, thin=1){
 
-  inits_test <- D%*%int
-  lower.log <- inits_test>=lower
-  upper.log <- inits_test<=upper
-  log <- prod(lower.log*upper.log)
-  if(log==0) stop("initial value outside bounds\n")
+  if ( any(lower >= upper)) stop("lower bound must be smaller than upper bound\n")
+  bound.check <- 0
+
+  if (!is.null(int)) {
+    inits_test <- D%*%int
+    lower.log <- inits_test >= lower + 1e-8  # small tol for get away from bound
+    upper.log <- inits_test <= upper - 1e-8  # small tol for get away from bound
+    bound.check <- prod(lower.log*upper.log)
+
+  } else if (bound.check == 0) {
+
+    D.inv <- MASS::ginv(D)
+    int <- D.inv%*%(lower + upper)/2
+  }
+
   if( any (c(burn,thin,n) %% 1 != 0))  stop("burn, thin and n must be integer\n")
   if ( any(c(burn, thin, n -1) < 0) ) stop("burn, thin must be  non-negative interger, n must be positive integer\n")
 
