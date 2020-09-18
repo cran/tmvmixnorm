@@ -57,7 +57,7 @@ rtmvn <- function(n, Mean, Sigma, D=diag(1,length(Mean)), lower, upper, int=NULL
     lower.log <- inits_test >= lower + 1e-8  # small tol for get away from bound
     upper.log <- inits_test <= upper - 1e-8  # small tol for get away from bound
     bound.check <- prod(lower.log*upper.log)
-    if(bound.check == 0) cat("initial is outside or too close from boundary, will be auto-correlated!\n")
+    if(bound.check == 0) cat("initial is outside or too close from boundary, will be auto-corrected by ginv()!\n")
   } else if (bound.check == 0) {
 
     D.inv <- MASS::ginv(D)
